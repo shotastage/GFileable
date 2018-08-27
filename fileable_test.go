@@ -17,5 +17,8 @@ func TestCasePwd(t *testing.T) {
 	f := fileable.Path("")
 
 	t.Log(f.Pwd())
-	f.Mkdir("")
+}
+
+func TestHome(t *testing.T) {
+	t.Log(fileable.Home())
 }

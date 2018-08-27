@@ -3,10 +3,11 @@ package fileable
 import (
 	"fmt"
 	"os"
+	"os/user"
 )
 
-func (f Fileable) IsDir() {
-	_, err := os.Stat("hoge.txt")
+func (f Fileable) IsDir(dir string) {
+	_, err := os.Stat(dir)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -32,5 +33,12 @@ func (f Fileable) Pwd() string {
 }
 
 func Home() string {
-	return ""
+
+	user, err := user.Current()
+
+	if err != nil {
+		return ""
+	}
+
+	return user.HomeDir
 }
