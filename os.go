@@ -1,8 +1,26 @@
-package os
+package fileable
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
-func Pwd() string {
+func (f Fileable) IsDir() {
+	_, err := os.Stat("hoge.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
+}
+
+func (f Fileable) IsFile(file string) {
+
+	_, err := os.Stat(file)
+	if err != nil {
+		fmt.Println(err)
+	}
+}
+
+func (f Fileable) Pwd() string {
 
 	current, err := os.Getwd()
 
