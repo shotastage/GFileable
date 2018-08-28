@@ -7,31 +7,25 @@ import (
 // Mkdir is a function that create a new directory.
 func (f *Fileable) Mkdir(path string) error {
 
-	if err := os.MkdirAll(path, 0777); err != nil {
-		return err
-	}
+	err := os.MkdirAll(path, 0777)
 
-	return nil
+	return err
 }
 
 // Rm is a function that remove files or directories.
 func (f *Fileable) Rm(path string) error {
 
-	if err := os.RemoveAll(path); err != nil {
-		return err
-	}
+	err := os.RemoveAll(path)
 
-	return nil
+	return err
 }
 
 // Mv is a function that rename or move directories or files.
 func (f *Fileable) Mv(path, to string) error {
 
-	if err := os.Rename(path, to); err != nil {
-		return err
-	}
+	err := os.Rename(path, to)
 
-	return nil
+	return err
 }
 
 func (f *Fileable) Touch(name string) {
