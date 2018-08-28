@@ -1,27 +1,33 @@
 package fileable
 
 import (
-	"fmt"
 	"os"
 	"os/user"
 )
 
-func (f Fileable) IsDir(dir string) {
-	_, err := os.Stat(dir)
+func (f Fileable) IsDir() bool {
+
+	_, err := os.Stat(f.path)
+
 	if err != nil {
-		fmt.Println(err)
+		return false
 	}
+
+	return true
 }
 
-func (f Fileable) IsFile(file string) {
+func (f Fileable) IsFile() bool {
 
-	_, err := os.Stat(file)
+	_, err := os.Stat(f.path)
+
 	if err != nil {
-		fmt.Println(err)
+		return false
 	}
+
+	return true
 }
 
-func (f Fileable) Pwd() string {
+func Pwd() string {
 
 	current, err := os.Getwd()
 
