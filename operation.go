@@ -5,7 +5,7 @@ import (
 )
 
 // Mkdir is a function that create a new directory.
-func (f *Fileable) Mkdir(path string) error {
+func Mkdir(path string) error {
 
 	err := os.MkdirAll(path, 0777)
 
@@ -13,29 +13,29 @@ func (f *Fileable) Mkdir(path string) error {
 }
 
 // Rm is a function that remove files or directories.
-func (f *Fileable) Rm(path string) error {
+func (f Fileable) Rm() error {
 
-	err := os.RemoveAll(path)
+	err := os.RemoveAll(f.path)
 
 	return err
 }
 
 // Mv is a function that rename or move directories or files.
-func (f *Fileable) Mv(path, to string) error {
+func (f Fileable) Mv(to string) error {
 
-	err := os.Rename(path, to)
+	err := os.Rename(f.path, to)
 
 	return err
 }
 
 // Chmod is a function that change mode or permission.
-func (f *Fileable) Chmod(target string, mode os.FileMode) error {
+func (f Fileable) Chmod(mode os.FileMode) error {
 
-	err := os.Chmod(target, mode)
+	err := os.Chmod(f.path, mode)
 
 	return err
 }
 
-func (f *Fileable) Touch(name string) {
+func Touch(name string) {
 	println("This function is now under construction.")
 }

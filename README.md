@@ -40,8 +40,8 @@ $ go get -u github.com/shotastage/FileableGo
 | `func (f Fileable) IsDir(dir string) ` | Check the directory exists or not.|
 | `Swift: func ext(path: String) -> Bool ` | Check the directory exists or not. **Not implemented**|
 | `Swift: func cd(path: String) throws`| Change directory like a `cd` command. **Not implemented**|
-| `func (f *Fileable) Mkdir(path string) error` | Make directory.|
-| `func (f *Fileable) Rm(path string) error`| Remove directory or file.|
+| `func Mkdir(path string) error` | Make directory.|
+| `func (f Fileable) Rm() error`| Remove directory or file.|
 | `func (f *Fileable) Mv(path, to string) error`| Move file or directory.|
 | `Swift: func touch(_ path: String) throws`| Create empty file.  **Not implemented**|
 
