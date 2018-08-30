@@ -36,6 +36,14 @@ func (f Fileable) Chmod(mode os.FileMode) error {
 	return err
 }
 
-func Touch(name string) {
+func Touch(name string) error {
 	println("This function is now under construction.")
+
+	file, err := os.OpenFile(name, os.O_WRONLY|os.O_CREATE, 0666)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	return nil
 }

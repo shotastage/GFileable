@@ -18,36 +18,36 @@ It enables to mange files or directories efficiently and easily.
 Using dep is strongly recommended to manage required package efficiently.
 If you want to add `FileableGo` manually, run following command in Go project root directory.
 
-```
-$ dep ensure -add github.com/shotastage/FileableGo
+```:shell
+dep ensure -add github.com/shotastage/FileableGo
 ```
 
 ## go get
 
 You can also use `go get` command instead of any other package manager.
 
-```
-$ go get -u github.com/shotastage/FileableGo
+```:shell
+go get -u github.com/shotastage/FileableGo
 ```
 
 # ⌘ APIs
 
 | Function | |
 |:--|:--|
-| `func (f Fileable) Pwd() string` | Get current directory path as a string.|
+| `func Pwd() string` | Get current directory path as a string.|
 | `func Home() string` | Get home directory path.|
-| `func (f Fileable) IsFile(file string)` | Check the file exists or not. |
-| `func (f Fileable) IsDir(dir string) ` | Check the directory exists or not.|
+| `func (f Fileable) IsFile() bool` | Check the file exists or not. |
+| `func (f Fileable) IsDir() bool` | Check the directory exists or not.|
 | `Swift: func ext(path: String) -> Bool ` | Check the directory exists or not. **Not implemented**|
 | `Swift: func cd(path: String) throws`| Change directory like a `cd` command. **Not implemented**|
 | `func Mkdir(path string) error` | Make directory.|
 | `func (f Fileable) Rm() error`| Remove directory or file.|
-| `func (f *Fileable) Mv(path, to string) error`| Move file or directory.|
-| `Swift: func touch(_ path: String) throws`| Create empty file.  **Not implemented**|
-
+| `func (f Fileable) Mv(to string) error`| Move file or directory.|
+| `func Touch(name string) error`| Create empty file.|
+| `func (f Fileable) Chmod(mode os.FileMode) error`| Change file permission.|
 
 
 # License
+
 Fileable is licensed under the `MIT`. 
 You can use this library free of charge. See [LICENSE](./LICENSE) for detail.
-

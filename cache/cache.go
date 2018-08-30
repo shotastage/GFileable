@@ -6,23 +6,26 @@ import (
 	fileable "github.com/shotastage/FileableGo"
 )
 
+// FileableCache is a struct for creating Cache Storage Object.
 type FileableCache struct {
 	Objects   []*CacheObj
 	Key       string
 	IsRevoked bool
 }
 
-type CacheObj struct {
-	File  string
-	ObjId string
-}
-
+// Storage is a function of constructor for initializing FileableCache object.
 func Storage(key string, obj ...*CacheObj) *FileableCache {
 	return &FileableCache{
 		Objects:   obj,
 		Key:       key,
 		IsRevoked: false,
 	}
+}
+
+// CacheObj is a struct for creating file object for caching.
+type CacheObj struct {
+	File  string
+	ObjId string
 }
 
 func Obj(path ...string) *CacheObj {
