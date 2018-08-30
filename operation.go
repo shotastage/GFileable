@@ -36,6 +36,7 @@ func (f Fileable) Chmod(mode os.FileMode) error {
 	return err
 }
 
+// Touch is a function for creating a empty file.
 func Touch(name string) error {
 	println("This function is now under construction.")
 
@@ -46,4 +47,9 @@ func Touch(name string) error {
 	defer file.Close()
 
 	return nil
+}
+
+// Cd is a function for moving current directory.
+func Cd(to string) {
+	os.Chdir(to)
 }
