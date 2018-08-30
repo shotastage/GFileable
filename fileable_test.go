@@ -45,3 +45,29 @@ func TestIsFile(t *testing.T) {
 		t.Log(profile, "is not a file.")
 	}
 }
+
+func TestMkdir(t *testing.T) {
+	fileable.Mkdir("testing_directory")
+}
+
+func TestCd(t *testing.T) {
+	fileable.Cd("testing_directory")
+}
+
+func TestTouch(t *testing.T) {
+	fileable.Touch("SampleFile")
+}
+
+func TestChmod(t *testing.T) {
+	f := fileable.Path("SampleFile")
+
+	f.Chmod(0777)
+}
+
+func TestRm(t *testing.T) {
+	fileable.Cd("../")
+
+	f := fileable.Path("testing_directory")
+
+	f.Rm()
+}

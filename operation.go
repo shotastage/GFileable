@@ -38,7 +38,6 @@ func (f Fileable) Chmod(mode os.FileMode) error {
 
 // Touch is a function for creating a empty file.
 func Touch(name string) error {
-	println("This function is now under construction.")
 
 	file, err := os.OpenFile(name, os.O_WRONLY|os.O_CREATE, 0666)
 	if err != nil {
