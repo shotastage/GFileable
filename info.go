@@ -3,6 +3,7 @@ package fileable
 import (
 	"os"
 	"os/user"
+	"strings"
 )
 
 // IsDir is a function that decide whether path is a directory.
@@ -27,6 +28,15 @@ func (f Fileable) IsFile() bool {
 	}
 
 	return true
+}
+
+// Extension is a function that return file extension.
+func (f Fileable) Extension() string {
+	arr := strings.Split(f.path, "/")
+
+	ext := strings.Split(arr[len(arr)-1], ".")[1]
+
+	return ext
 }
 
 // Pwd is a function that return current directory path.

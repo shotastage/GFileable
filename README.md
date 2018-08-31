@@ -38,7 +38,7 @@ go get -u github.com/shotastage/FileableGo
 | `func Home() string` | Get home directory path.|
 | `func (f Fileable) IsFile() bool` | Check the file exists or not. |
 | `func (f Fileable) IsDir() bool` | Check the directory exists or not.|
-| `Swift: func ext(path: String) -> Bool ` | Check the directory exists or not. **Not implemented**|
+| `func (f Fileable) Extension() string` | Get file extension. |
 | `func Cd(to string)`| Change directory like a `cd` command.|
 | `func Mkdir(path string) error` | Make directory.|
 | `func (f Fileable) Rm() error`| Remove directory or file.|
