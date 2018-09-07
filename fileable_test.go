@@ -1,9 +1,9 @@
-package fileable_test
+package GFileable_test
 
 import (
 	"testing"
 
-	fileable "github.com/shotastage/FileableGo"
+	fileable "github.com/shotastage/GFileable"
 )
 
 /*

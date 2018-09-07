@@ -1,4 +1,4 @@
-package fileable
+package GFileable
 
 import (
 	"os"

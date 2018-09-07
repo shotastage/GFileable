@@ -12,3 +12,5 @@
 *.out
 
 testing_directory/
+
+.DS_Store
