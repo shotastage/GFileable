@@ -1,6 +1,6 @@
 ![FileKit](./docs/filekit_readme.png)
 
-[![CircleCI](https://circleci.com/gh/shotastage/FileableGo.svg?style=svg)](https://circleci.com/gh/shotastage/FileableGo)
+[![CircleCI](https://circleci.com/gh/shotastage/GFileable.svg?style=svg)](https://circleci.com/gh/shotastage/GFileable)
 ![Go](https://img.shields.io/badge/Go-1.11-blue.svg)
 ![Linux supported](https://img.shields.io/badge/Linux-supported-5D9CEC.svg?style=flat)
 [![Go Report Card](https://goreportcard.com/badge/github.com/shotastage/FileableGo?style=flat)](https://goreportcard.com/report/github.com/shotastage/FileableGo)
@@ -8,7 +8,7 @@
 
 
 
-FileableGo is originated to [Fileable for Swift](https://github.com/shotastage/Fileable).
+GFileable is originated to [Fileable for Swift](https://github.com/shotastage/Fileable).
 It enables to mange files or directories efficiently and easily.
 
 # Installation
