@@ -1,7 +1,7 @@
 ![FileKit](./docs/filekit_readme.png)
 
 [![CircleCI](https://circleci.com/gh/shotastage/GFileable.svg?style=svg)](https://circleci.com/gh/shotastage/GFileable)
-![Go](https://img.shields.io/badge/Go-1.11-blue.svg)
+![Go](https://img.shields.io/badge/Go-1.12-blue.svg)
 ![Linux supported](https://img.shields.io/badge/Linux-supported-5D9CEC.svg?style=flat)
 [![Go Report Card](https://goreportcard.com/badge/github.com/shotastage/FileableGo?style=flat)](https://goreportcard.com/report/github.com/shotastage/FileableGo)
 
@@ -19,7 +19,7 @@ Using dep is strongly recommended to manage required package efficiently.
 If you want to add `FileableGo` manually, run following command in Go project root directory.
 
 ```:shell
-dep ensure -add github.com/shotastage/FileableGo
+dep ensure -add github.com/shotastage/GFileable
 ```
 
 ## go get
@@ -27,7 +27,7 @@ dep ensure -add github.com/shotastage/FileableGo
 You can also use `go get` command instead of any other package manager.
 
 ```:shell
-go get -u github.com/shotastage/FileableGo
+go get -u github.com/shotastage/GFileable
 ```
 
 # ⌘ APIs
