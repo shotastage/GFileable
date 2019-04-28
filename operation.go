@@ -15,7 +15,7 @@ func Mkdir(path string) error {
 // Rm is a function that remove files or directories.
 func (f Fileable) Rm() error {
 
-	err := os.RemoveAll(f.path)
+	err := os.RemoveAll(f.Path)
 
 	return err
 }
@@ -23,7 +23,7 @@ func (f Fileable) Rm() error {
 // Mv is a function that rename or move directories or files.
 func (f Fileable) Mv(to string) error {
 
-	err := os.Rename(f.path, to)
+	err := os.Rename(f.Path, to)
 
 	return err
 }
@@ -31,7 +31,7 @@ func (f Fileable) Mv(to string) error {
 // Chmod is a function that change mode or permission.
 func (f Fileable) Chmod(mode os.FileMode) error {
 
-	err := os.Chmod(f.path, mode)
+	err := os.Chmod(f.Path, mode)
 
 	return err
 }

@@ -9,7 +9,7 @@ import (
 // IsDir is a function that decide whether path is a directory.
 func (f Fileable) IsDir() bool {
 
-	_, err := os.Stat(f.path)
+	_, err := os.Stat(f.Path)
 
 	if err != nil {
 		return false
@@ -21,7 +21,7 @@ func (f Fileable) IsDir() bool {
 // IsFile is a function that decide whether path is a file.
 func (f Fileable) IsFile() bool {
 
-	_, err := os.Stat(f.path)
+	_, err := os.Stat(f.Path)
 
 	if err != nil {
 		return false
@@ -32,7 +32,7 @@ func (f Fileable) IsFile() bool {
 
 // Extension is a function that return file extension.
 func (f Fileable) Extension() string {
-	arr := strings.Split(f.path, "/")
+	arr := strings.Split(f.Path, "/")
 
 	ext := strings.Split(arr[len(arr)-1], ".")[1]
 
