@@ -14,7 +14,7 @@ func (f Fileable) WriteString(str string) error {
 
 	defer file.Close()
 
-	return nil
+	return err
 }
 
 // Check files existence
