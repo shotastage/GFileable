@@ -3,13 +3,13 @@ package GFileable
 import "os"
 
 // Write string to file
-func (f Fileable) Write(string string) error {
+func (f Fileable) WriteString(str string) error {
 	file, err := os.OpenFile(f.path, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
 		return err
 	}
 
-	data := []byte(string)
+	data := []byte(str)
 	_, err = file.Write(data)
 
 	defer file.Close()
