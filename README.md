@@ -13,17 +13,6 @@ It enables to mange files or directories efficiently and easily.
 
 # Installation
 
-## dep
-
-Using dep is strongly recommended to manage required package efficiently.
-If you want to add `FileableGo` manually, run following command in Go project root directory.
-
-```:shell
-dep ensure -add github.com/shotastage/GFileable
-```
-
-## go get
-
 You can also use `go get` command instead of any other package manager.
 
 ```:shell
