@@ -2,7 +2,6 @@ package GFileable
 
 import (
 	"os"
-	"os/user"
 	"strings"
 )
 
@@ -14,19 +13,21 @@ type Fileable struct {
 // Path is a constructor.
 func Path(path string) *Fileable {
 
-	if strings.Contains(path, "~") || strings.Contains(path, "$HOME") {
+	if strings.Contains(path, "~") {
 
-		user, err := user.Current()
-
-		if err != nil {
-			panic("Failed to get home dir")
-		}
-
-		home := user.HomeDir
+		home := Home()
 
 		hpath := strings.Replace(path, "~", home, 1)
 
-		hpath = strings.Replace(path, "$HOME", home, 1)
+		return &Fileable{Path: hpath}
+
+	}
+
+	if strings.Contains(path, "$HOME") {
+
+		home := Home()
+
+		hpath := strings.Replace(path, "$HOME", home, 1)
 
 		return &Fileable{Path: hpath}
 
