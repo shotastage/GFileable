@@ -41,3 +41,7 @@ func Path(path string) *Fileable {
 
 	return &Fileable{Path: path}
 }
+
+func Join(path ...string) *Fileable {
+	return &Fileable{Path: strings.Join(path, "")}
+}
