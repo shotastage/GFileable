@@ -42,6 +42,19 @@ func Path(path string) *Fileable {
 	return &Fileable{Path: path}
 }
 
-func Join(path ...string) *Fileable {
-	return &Fileable{Path: strings.Join(path, "")}
+func Join(path ...interface{}) *Fileable {
+
+	processing := make([]string, len(path), 10)
+
+	for i := 0; i < len(path); i++ {
+		if value, ok := path[i].(string); ok {
+			processing[i] = value
+		}
+
+		if value, ok := path[i].(Fileable); ok {
+			processing[i] = value.Path
+		}
+	}
+
+	return &Fileable{Path: strings.Join(processing, "/")}
 }
