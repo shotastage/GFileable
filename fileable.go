@@ -51,7 +51,7 @@ func Join(path ...interface{}) *Fileable {
 			processing[i] = value
 		}
 
-		if value, ok := path[i].(Fileable); ok {
+		if value, ok := path[i].(*Fileable); ok {
 			processing[i] = value.Path
 		}
 	}
