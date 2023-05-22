@@ -3,62 +3,54 @@ package GFileable
 import (
 	"os"
 	"os/user"
-	"strings"
+	"path/filepath"
 )
 
-// IsDir is a function that decide whether path is a directory.
-func (f Fileable) IsDir() bool {
+// Fileable represents a file or directory.
+type Fileable struct {
+	Path string
+}
 
-	_, err := os.Stat(f.Path)
-
+// IsDir returns whether the path is a directory.
+func (f Fileable) IsDir() (bool, error) {
+	info, err := os.Stat(f.Path)
 	if err != nil {
-		return false
+		return false, err
 	}
-
-	return true
+	return info.IsDir(), nil
 }
 
-// IsFile is a function that decide whether path is a file.
-func (f Fileable) IsFile() bool {
-
-	_, err := os.Stat(f.Path)
-
+// IsFile returns whether the path is a file.
+func (f Fileable) IsFile() (bool, error) {
+	info, err := os.Stat(f.Path)
 	if err != nil {
-		return false
+		return false, err
 	}
-
-	return true
+	return !info.IsDir(), nil
 }
 
-// Extension is a function that return file extension.
-func (f Fileable) Extension() string {
-	arr := strings.Split(f.Path, "/")
-
-	ext := strings.Split(arr[len(arr)-1], ".")[1]
-
-	return ext
-}
-
-// Pwd is a function that return current directory path.
-func Pwd() string {
-
-	current, err := os.Getwd()
-
+// Extension returns the file extension.
+func (f Fileable) Extension() (string, error) {
+	info, err := os.Stat(f.Path)
 	if err != nil {
-		return ""
+		return "", err
 	}
-
-	return current
+	if info.IsDir() {
+		return "", nil
+	}
+	return filepath.Ext(f.Path), nil
 }
 
-// Home is a function that return home directory path.
-func Home() string {
+// Pwd returns the current directory path.
+func Pwd() (string, error) {
+	return os.Getwd()
+}
 
+// Home returns the home directory path.
+func Home() (string, error) {
 	user, err := user.Current()
-
 	if err != nil {
-		return ""
+		return "", err
 	}
-
-	return user.HomeDir
+	return user.HomeDir, nil
 }
